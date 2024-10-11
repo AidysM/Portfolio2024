@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'users.apps.UsersConfig',
+    'pages.apps.PagesConfig',
     'blog.apps.BlogConfig',
     'home.apps.HomeConfig',
     'taggit',
