@@ -147,6 +147,19 @@
             </div>
         </div>
     </header>
+    <!-- Login section -->
+    <section class="py-5" id="features">
+        <div class="container px-5 my-5">
+            {% if user.is_authenticated %}
+                Hi {{ user.email }}!
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+            {% else %}
+                <p>You are not logged in</p>
+                <a href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
+    </section>
     <!-- About Section-->
     <section class="bg-light py-5">
         <div class="container px-5">
