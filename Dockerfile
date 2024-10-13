@@ -2,13 +2,20 @@
 FROM python:3.10.12
 
 # Set environment variables
+ENV PIP_DISABLE_PIP_VERSION_CHECK=on
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN pip install poetry
+
 # Set work directory
 WORKDIR /app
+COPY poetry.lock pyproject.toml /app/
 
 # Install dependencies
+RUN poetry config virtualenvs.create false
+RUN poetry install --no-interaction
+
 # RUN pip install -U pip \
 #     && apt-get update \
 #     && apt install -y curl netcat \
